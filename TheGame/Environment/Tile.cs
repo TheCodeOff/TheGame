@@ -11,18 +11,29 @@ namespace TheGame.Environment
 {
     public class Tile
     {
+        private Texture2D parentTexture; //  GRASS
         private Texture2D texture;
         //private AnimatedSprite sprite;
         public Rectangle tilespace;
-        private int x, y, a;
+        private int x, y, typeID;
         private bool isWalkable;
 
-        public Tile(Texture2D texture, int x, int y, int a, bool isWalkable)
+        /// <summary>
+        /// Create a new tile
+        /// </summary>
+        /// <param name="texture">The tile's texture</param>
+        /// <param name="x">X position</param>
+        /// <param name="y">Y position</param>
+        /// <param name="tileID">The ID of the tile</param>
+        /// <param name="isWalkable">Whether the tile can be walked upon</param>
+        public Tile(Texture2D texture, int x, int y, int tileID, bool isWalkable)
         {
             this.texture = texture;
+            this.parentTexture = texture;
             this.x = x;
             this.y = y;
-            this.a = a;
+            // TODO: Implement tile heights
+            this.typeID = tileID;
             this.isWalkable = isWalkable;
             //sprite = new AnimatedSprite(texture, 1, 4, 1.0);
             tilespace = new Rectangle((int)(x * LeGame.ENVIRONMENT_TILE_SIZE), (int)(y * LeGame.ENVIRONMENT_TILE_SIZE), LeGame.ENVIRONMENT_TILE_SIZE, LeGame.ENVIRONMENT_TILE_SIZE);
@@ -49,6 +60,9 @@ namespace TheGame.Environment
             int dX = (int)(PlayerEntity.drawLocation.X - PlayerEntity.location.X + tilespace.X);
             int dY = (int)(PlayerEntity.drawLocation.Y - PlayerEntity.location.Y + tilespace.Y);
             Rectangle drawLocation = new Rectangle(dX, dY, tilespace.Width, tilespace.Height);
+            // If this tile is part of a road, we draw grass underneath.
+            if(typeID == TileTextureLoader.STONE_ROAD)
+                spriteBatch.Draw(parentTexture, drawLocation, Color.White);
             spriteBatch.Draw(texture, drawLocation, Color.White);
         }
 
@@ -70,6 +84,16 @@ namespace TheGame.Environment
         public Texture2D GetTexture()
         {
             return texture;
+        }
+
+        public int GetTypeID()
+        {
+            return typeID;
+        }
+
+        public void SetTypeID(int p)
+        {
+            typeID = p;
         }
     }
 }

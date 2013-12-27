@@ -114,10 +114,11 @@
     <Compile Include="Entities\PlayerEntity.cs" />
     <Compile Include="Environment\Tile.cs" />
     <Compile Include="Environment\TiledEnvironment.cs" />
-    <Compile Include="Environment\TileTextureList.cs" />
+    <Compile Include="Environment\TileTextureLoader.cs" />
     <Compile Include="GUI\AudioControls.cs" />
     <Compile Include="Input\InputHandler.cs" />
     <Compile Include="Input\MapLoader.cs" />
+    <Compile Include="Items\Weapon.cs" />
     <Compile Include="LeGame.cs" />
     <Compile Include="Particles\Particle.cs" />
     <Compile Include="Particles\ParticleEngine.cs" />
@@ -131,6 +132,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\maps\worldmap.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\worldmap.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Game.ico" />

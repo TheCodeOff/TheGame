@@ -20,10 +20,10 @@ namespace TheGame.Environment
     /// </summary>
     public class TileEnvironment : DrawableGameComponent
     {
+        public TileTextureLoader texLoader;
         private PlayerEntity player;
         private Point prevLocation;
         private Point location;
-        public Texture2D[] textures;
 
         public Tile[] tileset;
         public int width;
@@ -38,6 +38,7 @@ namespace TheGame.Environment
             this.width = width;
             this.height = height;
             tileset = new Tile[width * height];
+            texLoader = new TileTextureLoader();
         }
 
         public override void Initialize()
@@ -45,21 +46,22 @@ namespace TheGame.Environment
             base.Initialize();
         }
 
-        public void Load(ContentManager content)
+        public void Load(ContentManager c)
         {
-            textures = new TileTextureList().GetTextureList(content);
-
+            texLoader.prepareTextures(c);
             int i = 0;
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
                 {
-                    tileset[i] = new Tile(textures[1], x, y, 0, true);
+                    // Use grass by default
+                    tileset[i] = new Tile(texLoader.getTexture(TileTextureLoader.GRASS), x, y, 1, true);
                     // Put walk border on sides of map to prevent user from exiting game screen.
                     if (x == 0 || x == (width - 1) || y == 0 || y == (height - 1))
                     {
-                        // No texture / transparent / void
-                        tileset[i].SetTexture(textures[0]);
+                        // Void the borders
+                        tileset[i].SetTexture(texLoader.getTexture(TileTextureLoader.VOID));
+                        tileset[i].SetTypeID(TileTextureLoader.VOID);
                         // Unwalkable
                         tileset[i].SetWalkable(false);
                     }

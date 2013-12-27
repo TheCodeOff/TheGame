@@ -74,17 +74,19 @@ namespace TheGame
 
         private void KeyPressed(Keys[] keys)
         {
-            game.states.KeyPressed(keys);       
+            game.states.KeyPressed(keys);
         }
 
         private void MouseRightClicked(MouseState mouse)
         {
-            Console.WriteLine("Mouse right clicked...");
+            if (game.window.Contains(new Rectangle(mouse.X, mouse.Y, 1, 1)))
+                Console.WriteLine("Mouse right clicked...");
         }
 
         private void MouseLeftClicked(MouseState mouse)
         {
-            Console.WriteLine("Mouse left clicked...");
+            if (game.window.Contains(new Rectangle(mouse.X, mouse.Y, 1, 1)))
+                Console.WriteLine("Mouse left clicked...");
         }
     }
 }

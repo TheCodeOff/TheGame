@@ -30,8 +30,8 @@ namespace TheGame
         public static double CLIENT_SCREEN_WIDTH = CLIENT_SCREEN_HEIGHT * CLIENT_SCREEN_RATIO;
         #endregion
         #region Environment
-        public static int ENVIRONMENT_WIDTH = 100;
-        public static int ENVIRONMENT_HEIGHT = 100;
+        public static int ENVIRONMENT_WIDTH = 30;
+        public static int ENVIRONMENT_HEIGHT = 30;
         public static int ENVIRONMENT_TILE_SIZE = 30;
         public static bool DRAW_BACKGROUND = false;
         #endregion

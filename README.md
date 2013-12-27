@@ -3,11 +3,14 @@
 ##SPECS AND TO-DO LiST ##
 * [x] Top-down *(AIPP)*
 * [x] Fog of war *(AIPP)*
-* Tiled world
+* Tiled environment
 	- [x] Stored in text-like file *(AIPP)*
 	- [x] Has edges *(AIPP)*
 	- [ ] Randomly generated
 	- [ ] Uses matrices for memory storage
+	- [ ] Multiple worlds
+		- [ ] Portals
+	- [ ] Buildings
 	- Tiles:
 		- [x] Have different textures *(AIPP)*
 		- [ ] Have heights
@@ -109,6 +112,10 @@
 		* Specifications moved to readme
 	* Switched over to Game State system
 	* Mobs now have health bars as well as name tags
+	**Part 2**
+	* Completely redid the tile texture loading and map loading
+		* Roads now connect their textures to each other
+		* Textures are loaded on request.
 	
 ## GLOSSARY ##
 AIPP = ACHIEVED IN PARENT PROJECTS, PRE-DECEMBER 2013
