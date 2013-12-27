@@ -6,9 +6,9 @@
 -||  TT---HH  HH-EEEEEE   GGGGGG-A    A-M  M  M-EEEEEE||||-
 -|||||||||||||||||||||||||||||||||||||||||||||||||||||||||-
 
-SPECS AND TO-DO LiST
--Top-down - AIPP
--Tiled world - AIPP
+# SPECS AND TO-DO LiST #
+*Top-down - AIPP
+*Tiled world - AIPP
 	- Randomly generated
 	- Stored in text-like file - AIPP
 	- Uses matrices for memory storage
