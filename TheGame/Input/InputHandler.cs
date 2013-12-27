@@ -74,13 +74,7 @@ namespace TheGame
 
         private void KeyPressed(Keys[] keys)
         {
-            if (keys.Contains(Keys.W)) game.player.PlayerPressedKey(Keys.W);
-            if (keys.Contains(Keys.A)) game.player.PlayerPressedKey(Keys.A);
-            if (keys.Contains(Keys.D)) game.player.PlayerPressedKey(Keys.D);
-            if (keys.Contains(Keys.Q)) game.player.PlayerPressedKey(Keys.Q);
-            if (keys.Contains(Keys.LeftShift)) game.player.SetSprinting(true);  // SHIFT - Sprint.
-            else if (!keys.Contains(Keys.LeftShift)) game.player.SetSprinting(false); //Stop Sprint         
-
+            game.states.KeyPressed(keys);       
         }
 
         private void MouseRightClicked(MouseState mouse)
@@ -91,8 +85,6 @@ namespace TheGame
         private void MouseLeftClicked(MouseState mouse)
         {
             Console.WriteLine("Mouse left clicked...");
-            game.audioControl.PlayerMouseClicked(new Point(mouse.X, mouse.Y));
-            game.player.MouseClicked(new Point(mouse.X, mouse.Y));
         }
     }
 }

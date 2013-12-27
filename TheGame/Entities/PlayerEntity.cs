@@ -143,12 +143,15 @@ namespace TheGame.Entities
 
         public void DrawCentered(SpriteBatch spriteBatch)
         {
-            // Sight
+            #region Sight area
             Rectangle cS = new Rectangle((int)drawLocation.X - sightRadius, (int)drawLocation.Y - sightRadius - 3, (sightRadius * 2) + 6, (sightRadius * 2) + 6);
-            //if (LeGame.SHOW_PLAYER_SIGHT) spriteBatch.Draw(sightTexture, cS, Color.White);
-            if (LeGame.SHOW_PLAYER_SIGHT) spriteBatch.Draw(sightTexture, sight, Color.White);
-            // Sprite
+            if (LeGame.SHOW_PLAYER_SIGHT) spriteBatch.Draw(sightTexture, cS, Color.White);
+            #endregion
+            #region Sprite
             sprite.Draw(spriteBatch, drawLocation, angle);
+            #endregion
+            #region Health bar and name tag
+            #endregion
         }
 
         public void Move()

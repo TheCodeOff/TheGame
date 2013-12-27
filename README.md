@@ -5,23 +5,31 @@
 * [x] Fog of war *(AIPP)*
 * Tiled world
 	- [x] Stored in text-like file *(AIPP)*
+	- [x] Has edges *(AIPP)*
 	- [ ] Randomly generated
 	- [ ] Uses matrices for memory storage
 	- Tiles:
 		- [x] Have different textures *(AIPP)*
 		- [ ] Have heights
-		- [ ] Have different movement speeds
-		- [ ] Is animated
+		- [ ] Have different movement speed multipliers
+		- [ ] Is animate-able
+		- [ ] Have different overlay colors
 * Player
-	- [x] Has health *(AIPP)*
+	- [x] Has health *(AIPP)*	
+		- [x] Health bar *(AIPP)*
+		- [ ] Receives damage
 	- [x] Has stamina *(AIPP)*
 		- [x] Can sprint *(AIPP)*
 		- [x] Uses Stamina to sprint *(AIPP)*
+		- [ ] Stamina bar
 	- [ ] Can choose from different skins
 	- [ ] Has a name
 		- [ ] Name is displayed next to his character
 	- [ ] Stats
 	- [ ] Has height
+	- [ ] Levels
+		- [ ] Capped
+		- [ ] Rewards stats through stat points
 * Enemies
 	- Melee enemies
 		- [x] Ogre *(AIPP)*
@@ -30,9 +38,11 @@
 	- AI movement
 		- [x] Ogre *(AIPP)*
 		- [ ] Skelly
-	- [ ] Health bars
+	- [x] Health bars *(002)*
+	- [x] Name tags	*(002)*
 	- [ ] Different stats
 	- [ ] Drops loot
+	- [ ] Levels
 * Main menu
 	- [ ] New game
 	- [ ] Load game
@@ -91,11 +101,14 @@
 >	
 	See all AIPP marked specifications.
 	
-### 002	(27 Dec 2013 to Dec 2013) ###
+### UPDATE 002	(December 2013) ###
 >
+	**Part 1**
 	* Changed draw style to center around player.
 	* Project is now available on GitHub as ***TheGame***
 		* Specifications moved to readme
+	* Switched over to Game State system
+	* Mobs now have health bars as well as name tags
 	
 ## GLOSSARY ##
 AIPP = ACHIEVED IN PARENT PROJECTS, PRE-DECEMBER 2013
