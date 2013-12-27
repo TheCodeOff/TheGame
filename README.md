@@ -94,7 +94,7 @@
 ### 002	(27 Dec 2013 to Dec 2013) ###
 >
 	* Changed draw style to center around player.
-	* Project is now available on GitHub as _TheGame_
+	* Project is now available on GitHub as ***TheGame***
 		* Specifications moved to readme
 	
 ## GLOSSARY ##
