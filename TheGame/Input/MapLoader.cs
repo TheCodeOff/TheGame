@@ -9,13 +9,11 @@ namespace TheGame
     public class EnvironmentLoader
     {
         private TileEnvironment environment;
-        //private int[] data;
         private string[] lines;
 
         public EnvironmentLoader(TileEnvironment environment)
         {
             this.environment = environment;
-            //this.data = new int[environment.width * environment.height];
         }
 
         public void LoadTileTextureMap()

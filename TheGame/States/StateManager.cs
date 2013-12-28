@@ -23,8 +23,7 @@ namespace TheGame.States
             menu = new StateMenu(game);
             single = new StateSingle(game);
             multi = new StateMulti(game);
-            //Singleplayer for now
-            curState = State.Single;
+            curState = LeGame.STARTING_STATE;
         }
 
         /// <summary>
@@ -53,8 +52,8 @@ namespace TheGame.States
         {
             Console.WriteLine("Loading content, " + this.GetType().ToString());
             menu.LoadContent(c);
-            single.LoadContent(c);
             multi.LoadContent(c);
+            single.LoadContent(c);
         }
 
         internal void Update(GameTime g)
@@ -102,6 +101,44 @@ namespace TheGame.States
                 default:
                     single.KeyPressed(keys);
                     break;
+            }
+        }
+
+        internal void MouseClicked(MouseState m, InputHandler.MouseButton b)
+        {
+            if (b == InputHandler.MouseButton.Left)
+            {
+                switch (curState)
+                {
+                    case State.Menu:
+                        menu.MouseClicked(m);
+                        break;
+                    case State.Multi:
+                        multi.MouseClicked(m);
+                        break;
+                    default:
+                        single.MouseClicked(m);
+                        break;
+                }
+            }
+        }
+
+        internal void MouseHover(MouseState m)
+        {
+            switch (curState)
+            {
+                case State.Menu:
+                    Console.WriteLine("Hovering over menu here~!!");
+                    menu.MouseHover(m);
+                    break;
+                case State.Multi:
+                    multi.MouseHover(m);
+                    break;
+                case State.Single:
+                    single.MouseHover(m);
+                    break;
+                default:
+                    return;                    
             }
         }
     }

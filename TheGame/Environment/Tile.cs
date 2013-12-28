@@ -15,6 +15,7 @@ namespace TheGame.Environment
         private Texture2D texture;
         //private AnimatedSprite sprite;
         public Rectangle tilespace;
+        private string data;
         private int x, y, typeID;
         private bool isWalkable;
 
@@ -25,15 +26,16 @@ namespace TheGame.Environment
         /// <param name="x">X position</param>
         /// <param name="y">Y position</param>
         /// <param name="tileID">The ID of the tile</param>
+        /// <param name="data">The tile connection data</param>
         /// <param name="isWalkable">Whether the tile can be walked upon</param>
-        public Tile(Texture2D texture, int x, int y, int tileID, bool isWalkable)
+        public Tile(Texture2D texture, int x, int y, int tileID, string data, bool isWalkable)
         {
             this.texture = texture;
             this.parentTexture = texture;
             this.x = x;
             this.y = y;
-            // TODO: Implement tile heights
             this.typeID = tileID;
+            this.data = data;
             this.isWalkable = isWalkable;
             //sprite = new AnimatedSprite(texture, 1, 4, 1.0);
             tilespace = new Rectangle((int)(x * LeGame.ENVIRONMENT_TILE_SIZE), (int)(y * LeGame.ENVIRONMENT_TILE_SIZE), LeGame.ENVIRONMENT_TILE_SIZE, LeGame.ENVIRONMENT_TILE_SIZE);

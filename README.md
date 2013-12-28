@@ -47,12 +47,12 @@
 	- [ ] Drops loot
 	- [ ] Levels
 * Main menu
-	- [ ] New game
+	- [x] New game *(003)*
 	- [ ] Load game
 	- Options/Settings
 		- [ ] Audio control
 		- [ ] Name control
-	- [ ] Exit
+	- [x] Exit *(003)*
 * Weapons
 	- Ranged
 		- [ ] Rifles
@@ -100,11 +100,11 @@
 	- [ ] Costs currency
 
 ## VERSION NOTES ##
-### AIPP (Before 26 December 2013) ###
+### AIPP (ACHIEVED IN PARENT PROJECTS) (Before 26 December 2013) ###
 >	
 	See all AIPP marked specifications.
 	
-### UPDATE 002	(December 2013) ###
+### UPDATE 002	(26, 27 December 2013) ###
 >
 	**Part 1**
 	* Changed draw style to center around player.
@@ -116,8 +116,12 @@
 	* Completely redid the tile texture loading and map loading
 		* Roads now connect their textures to each other
 		* Textures are loaded on request.
-	
-## GLOSSARY ##
-AIPP = ACHIEVED IN PARENT PROJECTS, PRE-DECEMBER 2013
+	* Higher resolution tile textures now in use.
+		* Road has connected textures
 
-
+### UPDATE 003	(28 December 2013) ###
+>
+	**Part 1**
+	* Menu now in effect.
+		* Can go singleplayer and exit.
+	* Input handler now handles different input depending on the state.

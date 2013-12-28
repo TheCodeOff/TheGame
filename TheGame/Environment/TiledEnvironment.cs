@@ -55,7 +55,7 @@ namespace TheGame.Environment
                 for (int x = 0; x < width; x++)
                 {
                     // Use grass by default
-                    tileset[i] = new Tile(texLoader.getTexture(TileTextureLoader.GRASS), x, y, 1, true);
+                    tileset[i] = new Tile(texLoader.getTexture(TileTextureLoader.GRASS), x, y, 1, "0000", true);
                     // Put walk border on sides of map to prevent user from exiting game screen.
                     if (x == 0 || x == (width - 1) || y == 0 || y == (height - 1))
                     {

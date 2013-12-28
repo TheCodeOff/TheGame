@@ -32,11 +32,11 @@ namespace TheGame
         #region Environment
         public static int ENVIRONMENT_WIDTH = 30;
         public static int ENVIRONMENT_HEIGHT = 30;
-        public static int ENVIRONMENT_TILE_SIZE = 30;
+        public static int ENVIRONMENT_TILE_SIZE = 50;
         public static bool DRAW_BACKGROUND = false;
         #endregion
         #region States
-        public static StateManager.State STARTING_STATE = StateManager.State.Single;
+        public static StateManager.State STARTING_STATE = StateManager.State.Menu;
         #endregion
         #region Sights and Fog of War
         public static bool SHOW_PLAYER_SIGHT = false;
@@ -47,8 +47,9 @@ namespace TheGame
         public static bool AUDIO_IS_MUTED = true;
         #endregion
         #region Fonts
-        public static SpriteFont gameFont;
-        public static SpriteFont menuFont;
+        public static SpriteFont gameFont; // Ingame font
+        public static SpriteFont menuBackFont; // Menu Background font
+        public static SpriteFont menuFont; // Menu font
         #endregion
         #endregion
 
@@ -107,6 +108,7 @@ namespace TheGame
             states.LoadContent(Content);
             // Fonts
             gameFont = Content.Load<SpriteFont>("fonts/GameFont");
+            menuBackFont = Content.Load<SpriteFont>("fonts/MenuBackFont");
             menuFont = Content.Load<SpriteFont>("fonts/MenuFont");
         }
 
@@ -114,9 +116,8 @@ namespace TheGame
 
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
+            // Allows the game to exit using gamepad
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) this.Exit();
-            else if (Keyboard.GetState().IsKeyDown(Keys.Escape)) this.Exit();
 
             //Update core components
             input.Update(gameTime);

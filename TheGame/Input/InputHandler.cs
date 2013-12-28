@@ -25,6 +25,8 @@ namespace TheGame
         private KeyboardState previousKeyboardState;
         private KeyboardState currentKeyboardState;
 
+        public enum MouseButton { Left, Right };
+
         public InputHandler(Game game)
             : base(game)
         {
@@ -48,12 +50,14 @@ namespace TheGame
 
             if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
             {
-                MouseLeftClicked(currentMouseState);
+                MouseClicked(currentMouseState, MouseButton.Left);
             }
             else if (currentMouseState.RightButton == ButtonState.Pressed && previousMouseState.RightButton == ButtonState.Released)
             {
-                MouseRightClicked(currentMouseState);
+                MouseClicked(currentMouseState, MouseButton.Right);
             }
+            // Hovers
+            MouseHover(currentMouseState);
 
             previousMouseState = currentMouseState;
             #endregion
@@ -77,16 +81,19 @@ namespace TheGame
             game.states.KeyPressed(keys);
         }
 
-        private void MouseRightClicked(MouseState mouse)
+        private void MouseClicked(MouseState mouse, MouseButton button)
         {
             if (game.window.Contains(new Rectangle(mouse.X, mouse.Y, 1, 1)))
-                Console.WriteLine("Mouse right clicked...");
+            {
+                Console.WriteLine("Mouse " + button + " clicked...");
+                game.states.MouseClicked(mouse, button);
+            }
         }
 
-        private void MouseLeftClicked(MouseState mouse)
+        private void MouseHover(MouseState mouse)
         {
             if (game.window.Contains(new Rectangle(mouse.X, mouse.Y, 1, 1)))
-                Console.WriteLine("Mouse left clicked...");
+                game.states.MouseHover(mouse);
         }
     }
 }

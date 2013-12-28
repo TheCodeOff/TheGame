@@ -19,7 +19,8 @@ namespace TheGame.Entities
         public static int size = 12;
 
         public MouseEntity(Game game) : base(game) {
-            screenArea = new Rectangle(0, 0, (int)LeGame.CLIENT_SCREEN_WIDTH, (int)(LeGame.CLIENT_SCREEN_RATIO * LeGame.CLIENT_SCREEN_WIDTH));
+            screenArea = game.Window.ClientBounds;
+            // screenArea = new Rectangle(0, 0, (int)LeGame.CLIENT_SCREEN_WIDTH, (int)(LeGame.CLIENT_SCREEN_RATIO * LeGame.CLIENT_SCREEN_WIDTH));
         }
 
         public void Load(ContentManager content)

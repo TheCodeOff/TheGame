@@ -130,9 +130,13 @@ namespace TheGame.States
             if (keys.Contains(Keys.A)) player.PlayerPressedKey(Keys.A);
             if (keys.Contains(Keys.D)) player.PlayerPressedKey(Keys.D);
             if (keys.Contains(Keys.Q)) player.PlayerPressedKey(Keys.Q);
+            if (keys.Contains(Keys.Escape)) game.states.setCurrentState(StateManager.State.Menu);
             if (keys.Contains(Keys.LeftShift)) player.SetSprinting(true);  // SHIFT - Sprint.
             else if (!keys.Contains(Keys.LeftShift)) player.SetSprinting(false); //Stop Sprint  
             #endregion
         }
+
+        internal void MouseClicked(MouseState m) { }
+        internal void MouseHover(MouseState m) { }
     }
 }

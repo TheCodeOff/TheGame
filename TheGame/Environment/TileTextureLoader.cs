@@ -17,10 +17,12 @@ namespace TheGame.Environment
         public static String GRASS_PATH = "environment/grass";
         public static int STONE_ROAD = 2;
         public static String STONE_ROAD_PATH = "environment/stoneroad/stoneroad";
-        public static int ICE = 3;
-        public static String ICE_PATH = "environment/ice2";
-        public static int SAND = 3;
+        public static int WATER = 3;
+        public static String WATER_PATH = "environment/water";
+        public static int SAND = 4;
         public static String SAND_PATH = "environment/sand";
+        public static int ICE = 5;
+        public static String ICE_PATH = "environment/ice";
         #endregion
 
         public TileTextureLoader() { }
@@ -36,36 +38,24 @@ namespace TheGame.Environment
             {
                 case 0:
                     return c.Load<Texture2D>(VOID_PATH);
-                case 2:
-                    return c.Load<Texture2D>(STONE_ROAD_PATH + "0000");
                 case 3:
+                    return c.Load<Texture2D>(WATER_PATH);
+                case 4:
+                    return c.Load<Texture2D>(SAND_PATH);
+                case 5:
                     return c.Load<Texture2D>(ICE_PATH);
-                default:
+                default: // 1
                     return c.Load<Texture2D>(GRASS_PATH);
             }
         }
 
         public Texture2D getTexture(int tileID, String data)
         {
-            switch (tileID)
+            if (tileID == STONE_ROAD)
             {
-                case 0:
-                    return c.Load<Texture2D>(VOID_PATH);
-                case 2:
-                    try
-                    {
-                        return c.Load<Texture2D>(STONE_ROAD_PATH + data);
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("missing road texture:" + data);
-                        return c.Load<Texture2D>(STONE_ROAD_PATH + "0000");
-                    }
-                case 3:
-                    return c.Load<Texture2D>(ICE_PATH);
-                default:
-                    return c.Load<Texture2D>(GRASS_PATH);
+                return c.Load<Texture2D>(STONE_ROAD_PATH + data);
             }
+            else return getTexture(tileID);
         }
 
         public bool isWalkable(int tileID)

@@ -16,6 +16,9 @@ namespace TheGame.States
         internal void LoadContent(ContentManager c) { }
         internal void Update(GameTime g) { }
         internal void Draw(SpriteBatch s, GameTime g) { }
+
         internal void KeyPressed(Keys[] keys) { }
+        internal void MouseClicked(MouseState m) { }
+        internal void MouseHover(MouseState m) { }
     }
 }
