@@ -64,7 +64,7 @@
 		- [ ] Axes
 * Armour
 	- [ ] Light, Medium, Heavy
-	- [ ] Changes character l||k
+	- [ ] Changes character look
 * Skills
 	- [x] Sprinting *(AIPP)*
 	- [ ] Teleportation
@@ -105,14 +105,16 @@
 	See all AIPP marked specifications.
 	
 ### UPDATE 002	(26, 27 December 2013) ###
+**Part 1**
 >
-	**Part 1**
 	* Changed draw style to center around player.
-	* Project is now available on GitHub as ***TheGame***
+	* Project is now available on GitHub as TheGame
 		* Specifications moved to readme
 	* Switched over to Game State system
 	* Mobs now have health bars as well as name tags
-	**Part 2**
+
+**Part 2**
+>
 	* Completely redid the tile texture loading and map loading
 		* Roads now connect their textures to each other
 		* Textures are loaded on request.
@@ -120,8 +122,13 @@
 		* Road has connected textures
 
 ### UPDATE 003	(28 December 2013) ###
+**Part 1**
 >
-	**Part 1**
 	* Menu now in effect.
 		* Can go singleplayer and exit.
 	* Input handler now handles different input depending on the state.
+	* Cleanup of tile texture loading.
+
+**Part 2**
+>
+	* 
