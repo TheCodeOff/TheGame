@@ -18,8 +18,10 @@ namespace TheGame.Entities
         private Rectangle screenArea;
         public static int size = 12;
 
-        public MouseEntity(Game game) : base(game) {
-            screenArea = game.Window.ClientBounds;
+        public MouseEntity(LeGame game)
+            : base(game)
+        {
+            screenArea = game.window;
             // screenArea = new Rectangle(0, 0, (int)LeGame.CLIENT_SCREEN_WIDTH, (int)(LeGame.CLIENT_SCREEN_RATIO * LeGame.CLIENT_SCREEN_WIDTH));
         }
 
@@ -37,10 +39,7 @@ namespace TheGame.Entities
         public void Update(MouseState mouse, GameTime gameTime)
         {
             Point mouseLocation = new Point(mouse.X, mouse.Y);
-            if (screenArea.Contains(mouseLocation))
-            {
-                location = new Rectangle(mouseLocation.X, mouseLocation.Y, size, size);
-            }
+            location = new Rectangle(mouseLocation.X, mouseLocation.Y, size, size);
 
             particles.EmitterLocation = new Vector2(mouse.X, mouse.Y);
             particles.Update();

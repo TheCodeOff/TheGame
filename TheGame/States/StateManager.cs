@@ -19,7 +19,7 @@ namespace TheGame.States
 
         public StateManager(LeGame game)
         {
-            // Create states
+            Log("Creating states");
             menu = new StateMenu(game);
             single = new StateSingle(game);
             multi = new StateMulti(game);
@@ -37,12 +37,13 @@ namespace TheGame.States
 
         public void setCurrentState(State newState)
         {
+            Log("Changing state from " + curState + " to " + newState);
             curState = newState;
         }
 
         internal void Initialize()
         {
-            Console.WriteLine("Initializing, " + this.GetType().ToString());
+            Log("Initializing");
             menu.Initialize();
             single.Initialize();
             multi.Initialize();
@@ -50,7 +51,7 @@ namespace TheGame.States
 
         internal void LoadContent(ContentManager c)
         {
-            Console.WriteLine("Loading content, " + this.GetType().ToString());
+            Log("Loading content");
             menu.LoadContent(c);
             multi.LoadContent(c);
             single.LoadContent(c);
@@ -128,7 +129,6 @@ namespace TheGame.States
             switch (curState)
             {
                 case State.Menu:
-                    Console.WriteLine("Hovering over menu here~!!");
                     menu.MouseHover(m);
                     break;
                 case State.Multi:
@@ -141,5 +141,11 @@ namespace TheGame.States
                     return;                    
             }
         }
+        
+        /// <summary>
+        /// Log a entry.
+        /// </summary>
+        /// <param name="message">Entry message</param>
+        public void Log(String message) { Console.WriteLine("[StateManager] " + message); }
     }
 }

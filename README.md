@@ -11,12 +11,16 @@
 	- [ ] Multiple worlds
 		- [ ] Portals
 	- [ ] Buildings
+	- [ ] Objects
 	- Tiles:
 		- [x] Have different textures *(AIPP)*
 		- [ ] Have heights
 		- [ ] Have different movement speed multipliers
 		- [ ] Is animate-able
 		- [ ] Have different overlay colors
+* [ ] World effects
+	* [ ] Clouds
+	* [ ] Splashes when walking into water
 * Player
 	- [x] Has health *(AIPP)*	
 		- [x] Health bar *(AIPP)*
@@ -129,6 +133,7 @@
 	* Input handler now handles different input depending on the state.
 	* Cleanup of tile texture loading.
 
-**Part 2**
+**Part 2 (Menu Update)**
 >
-	* 
+	* Menu has full audio and a scrolling background.
+	* Menu has fade transitions.

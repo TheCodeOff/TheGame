@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="Core\AnimatedSprite.cs" />
     <Compile Include="Core\AudioComponent.cs" />
+    <Compile Include="Core\ScrollBackground.cs" />
     <Compile Include="Entities\MouseEntity.cs" />
     <Compile Include="Entities\OgreEntity.cs" />
     <Compile Include="Entities\PlayerEntity.cs" />

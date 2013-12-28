@@ -48,8 +48,6 @@ namespace TheGame
         #endregion
         #region Fonts
         public static SpriteFont gameFont; // Ingame font
-        public static SpriteFont menuBackFont; // Menu Background font
-        public static SpriteFont menuFont; // Menu font
         #endregion
         #endregion
 
@@ -62,17 +60,18 @@ namespace TheGame
         #endregion
 
         #region Game Info
-        private String GAME_NAME = "ThEGaME";
-        private String GAME_VERSION = "0.1.1";
+        public static String NAME = "The Game";
+        public static String VERSION = "003P1";
         #endregion
         public LeGame()
         {
-            Console.WriteLine("Starting " + GAME_NAME + ", version " + GAME_VERSION + "  at " + DateTime.Now.ToShortDateString());
+            Console.WriteLine("Starting " + NAME + ", version " + VERSION + "  at " + DateTime.Now.ToShortDateString());
             #region Graphics Setup
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = (int)CLIENT_SCREEN_WIDTH;
             graphics.PreferredBackBufferHeight = (int)CLIENT_SCREEN_HEIGHT;
             graphics.ApplyChanges();
+            this.Window.Title = NAME + " (" + VERSION + ")";
             #endregion
             #region Content Setup
             Content.RootDirectory = "Content";
@@ -88,7 +87,7 @@ namespace TheGame
         /// </summary>
         protected override void Initialize()
         {
-            Console.WriteLine("Initializing Game...");
+            Log("Initializing");
             // Initialize window
             window = new Rectangle(0, 0, Window.ClientBounds.Width, Window.ClientBounds.Height);
             // Base
@@ -102,17 +101,19 @@ namespace TheGame
         /// </summary>
         protected override void LoadContent()
         {
+            Log("Loading content");
             // Batch
             spriteBatch = new SpriteBatch(graphics.GraphicsDevice);
             // State
             states.LoadContent(Content);
             // Fonts
             gameFont = Content.Load<SpriteFont>("fonts/GameFont");
-            menuBackFont = Content.Load<SpriteFont>("fonts/MenuBackFont");
-            menuFont = Content.Load<SpriteFont>("fonts/MenuFont");
         }
 
-        protected override void UnloadContent() { }
+        protected override void UnloadContent()
+        {
+            Log("Unloading content");
+        }
 
         protected override void Update(GameTime gameTime)
         {
@@ -140,7 +141,13 @@ namespace TheGame
             // Draw state
             states.Draw(spriteBatch, gameTime);
             // End drawing
-            spriteBatch.End();            
+            spriteBatch.End();
         }
+
+        /// <summary>
+        /// Log a entry.
+        /// </summary>
+        /// <param name="message">Entry message</param>
+        public void Log(String message) { Console.WriteLine("[TheGame] " + message); }
     }
 }
